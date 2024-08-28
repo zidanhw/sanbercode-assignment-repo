@@ -28,9 +28,10 @@ app.get('/api/categories/:id', (req,res) => {
 
 // get by query
 app.get('/api/categories/:id/search', (req,res) => {
-    const {id, name} = req.params;
+    const id = parseInt(req.params.id)
     const query = req.query.q;
-    res.json({id : id, name: query, category: name});
+    const item = categories.find(c => c.id === id);
+    res.json({id : id, name: query, category: item.name});
 })
 
 // post
