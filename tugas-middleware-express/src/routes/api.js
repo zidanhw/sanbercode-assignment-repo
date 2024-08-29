@@ -17,8 +17,6 @@ const multer_1 = __importDefault(require("multer"));
 const cloudinary_1 = __importDefault(require("../utils/cloudinary"));
 const router = express_1.default.Router();
 const upload = (0, multer_1.default)({ dest: 'uploads/' });
-// router.get("/upload/single", single, (req, res) => {});
-// router.get("/upload/multiple", multiple, (req, res) => {});
 router.post('/upload-single', upload.single('photo'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield cloudinary_1.default.uploader.upload(req.file.path);
